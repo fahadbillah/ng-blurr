@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="BlurrLoading">
+<head>
+	<title>Blurr Directive</title>
+	<link rel="stylesheet" type="text/css" href="ng-blurr.css">
+	<style type="text/css">
+		img{
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div ng-controller="MainCtrl">
+		<img ng-blurr="image.src" ng-src="{{image.base64}}">
+	</div>
+
+	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+	<script type="text/javascript" src="ng-blurr.js"></script>
+	<script type="text/javascript">
+		/**
+		* ngBlurr Module
+		*
+		* Demo website's main module 
+		*/
+		var BlurrLoading = angular.module('BlurrLoading',['Blurr']);
+
+		BlurrLoading.controller('MainCtrl', ['$scope', function ($scope) {
+			$scope.image = {
+				src: 'https://www.y-axis.com/news/wp-content/uploads/2014/11/Dubai.jpg',
+				base64: 'data:image/jpeg;base64,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'
+			};
+		}]);
+	</script>
+</body>
+</html>
